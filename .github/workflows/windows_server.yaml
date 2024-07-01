@@ -6,6 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        cxx_standard: [23]
         build_type: [
             {"BUILD_TYPE":"Release", "RUNTIME":"MD"},
             {"BUILD_TYPE":"Debug",   "RUNTIME":"MDd"}
@@ -48,10 +49,11 @@ jobs:
           BUILD_TYPE: ${{matrix.build_type.BUILD_TYPE}}
           RUNTIME: ${{matrix.build_type.RUNTIME}}
           TOOLCHAIN_VERSION: ${{matrix.configuration.TOOLCHAIN_VERSION}}
+          CXX_STANDARD: ${{matrix.cxx_standard}}
         run: |
           New-Item -Path "./" -Name local_build -ItemType "directory"
 
-          cmake -B local_build -GNinja -DCMAKE_BUILD_TYPE:STRING="$Env:BUILD_TYPE" -DCMAKE_RUNTIME:STRING="$Env:RUNTIME" -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DCMAKE_C_COMPILER=${CC} -DCMAKE_CXX_COMPILER=${CXX}
+          cmake -B local_build -GNinja -DCMAKE_BUILD_TYPE:STRING="$Env:BUILD_TYPE" -DCMAKE_RUNTIME:STRING="$Env:RUNTIME" -DCMAKE_CXX_STANDARD:STRING="$Env:CXX_STANDARD"
 
       - name: Build
         run: cmake --build local_build
