@@ -50,6 +50,7 @@ jobs:
           TOOLCHAIN_VERSION: ${{matrix.configuration.TOOLCHAIN_VERSION}}
         run: |
           New-Item -Path "./" -Name local_build -ItemType "directory"
+
           cmake -B local_build -GNinja -DCMAKE_BUILD_TYPE:STRING="$Env:BUILD_TYPE" -DCMAKE_RUNTIME:STRING="$Env:RUNTIME" -DCMAKE_CXX_STANDARD=${CXX_STANDARD} -DCMAKE_C_COMPILER=${CC} -DCMAKE_CXX_COMPILER=${CXX}
 
       - name: Build

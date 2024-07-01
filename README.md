@@ -3,6 +3,11 @@ WebSocket frame parser and builder
 
 This is a parser and builder for WebSocket messages (see [RFC6455](https://tools.ietf.org/html/rfc6455)) written in C.
 
+![GCC builds](https://github.com/GremSnoort/websocket-parser/actions/workflows/ubuntu_gcc.yaml/badge.svg)
+![Clang builds](https://github.com/GremSnoort/websocket-parser/actions/workflows/ubuntu_clang.yaml/badge.svg)
+![WindowsServer builds](https://github.com/GremSnoort/websocket-parser/actions/workflows/windows_server.yaml/badge.svg)
+
+
 Table of Contents
 -----------------
 
