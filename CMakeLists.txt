@@ -111,3 +111,16 @@ add_library(${PROJECT_NAME} STATIC
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER websocket_parser.h)
+include(GNUInstallDirs)
+
+install(TARGETS ${PROJECT_NAME}
+    PUBLIC_HEADER
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/
+)
+
+install(TARGETS ${PROJECT_NAME}
+    LIBRARY
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/
+)
