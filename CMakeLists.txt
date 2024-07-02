@@ -112,6 +112,8 @@ add_library(${PROJECT_NAME} STATIC
 
 target_link_libraries(${PROJECT_NAME} PUBLIC)
 
+# https://cmake.org/cmake/help/latest/command/install.html
+# https://cmake.org/cmake/help/book/mastering-cmake/chapter/Install.html
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER websocket_parser.h)
 include(GNUInstallDirs)
 
